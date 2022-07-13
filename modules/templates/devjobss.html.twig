@@ -1,0 +1,81 @@
+<body >
+{{attach_library ('devjobs/output') }}
+<script src="https://kit.fontawesome.com/e84fd2aed4.js" crossorigin="anonymous"></script>
+<script src="devjobss.js"></script>
+
+    <header class="bg-indigo-600 w-full h-36 rounded-bl-[100px] flex   justify-center"  id="header" >
+
+
+        <a href="http://drupal.docker.localhost:8000/devjobss"><img src="modules/custom/devjobss/img/devjobs.png" class="absolute w-28 top-10 left-40 " alt=""></a>
+        <div class="absolute top-10 right-[100px] flex justify-center items-center w-[140px] h-[50px] ">
+          <i class="fa-solid fa-sun  text-[25px] text-white m-[5px]" ></i>
+          <div class="w-[60px] h-[24px] border-[3px] border-white inline-block rounded-[12px] bg-white">
+              <div class="w-[18px] h-[18px] rounded-full bg-indigo-600 cursor-pointer active:translate-x-[20px] duration-1000	"></div>
+          </div>
+          <i class="fa-solid fa-moon text-white	text-[25px] m-[5px]"></i>
+        </div>
+
+
+        <form class="w-[1100px] h-16  bg-gray-100 rounded-md mt-28 flex justify-center items-center  " method="get" id="formback">
+            
+            <div class="w-[459px] h-full flex items-center pl-[4px] pr-[4px] border-r-[1px] border-gray-400">
+                <img src="modules/custom/devjobss/img/search.png" class="w-5 h-5 mr-[4px] "  alt="">
+                <input type="text" name="title" placeholder="Filter by title, companies, expertise..." class="w-full  outline-none bg-gray-100" id="title">
+            </div>
+            <div class="w-[315px] h-full flex items-center  pr-[4px] pl-[4px] border-r-[1px] border-l-[1px] border-gray-400">
+                <img src="modules/custom/devjobss/img/Shape.png" class="w-4 h-6 mr-[4px]" alt="">
+                <input type="text" name="location" placeholder="Filter by location..." class="w-full  outline-none bg-gray-100" id="location">
+
+            </div>
+            <div class="w-[315px] h-full flex items-center pr-[4px] pl-[4px] border-l-[1px] border-gray-400">
+                <input type="checkbox" name="full-time" class="w-[20px] h-[20px] checked:bg-black" id="button">
+                <span class="font-bold text-[17px] p-[5px]">Full time only</span>
+                <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-sm font-medium px-5 py-2.5 mr-2 mb-2  ml-[20px] w-32 h-12">search</button>
+        <form>
+
+
+    </header>
+
+
+    <center><section >
+    
+        {{ jobs.nid}}
+        <div class="w-[1160px] mt-[150px]" >
+            {% for job in jobs  %}
+            <div class="w-[350px] h-[300px] inline-block m-[15px]" >
+                <a href= " node/{{ job.link }}"><img src={{ job.url }}{{ attributes.addClass('w-[50px] h-[50px] rounded-[22%] translate-x-[-110px] translate-y-[25px]	') }}></a>
+                <div class="w-[350px] h-[250px] bg-gray-200 rounded-[30px] text-left	" id="blocks">
+                <div class="ml-[30px] translate-y-[38px] text-[15px] font-light		">{{ node.getCreatedTime|date('G F Y') }}</div>
+                <a href= " node/{{ job.link }}" class="w-[0] h-[0]"><div class="ml-[30px] translate-y-[40px] font-black	text-[18px] inline-block">{{ job.jobname}}</div></a>
+                <div class="ml-[30px] translate-y-[55px]">{{ job.companyname}}</div>
+                <div class="ml-[30px] translate-y-[135px] text-blue-700 font-bold	">{{ job.country}}</div>
+            </div>
+        </div>
+            {% endfor %}
+
+
+        </div>
+
+        <div class="w-[150px] h-[42px] bg-blue-700	m-[80px] ">load more        </div>
+
+    </section></center>
+<script>
+const header = document.getElementById('header');
+const button = document.getElementById('button');
+const formback = document.getElementById('formback');
+const title = document.getElementById('title');
+const locationn = document.getElementById('location');
+const block = document.getElementById('blocks');
+
+header.addEventListener('change', () => {
+   formback.style.backgroundColor = "#19202D";
+   title.style.backgroundColor = "#19202D";
+   locationn.style.backgroundColor = "#19202D";
+   document.body.style.background = "#1a1a1a";
+   block.style.backgroundColor = "#19202D";
+   });
+
+
+
+</script>
+</body>

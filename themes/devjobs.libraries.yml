@@ -1,0 +1,7 @@
+output:
+  version: 1.x
+  css:
+    theme:
+      dist/output.css: {}
+  js:
+    js/devjobss.js: {}

@@ -1,0 +1,138 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ */
+#}
+{{attach_library ('devjobs/output') }}
+
+<script src="https://kit.fontawesome.com/e84fd2aed4.js" crossorigin="anonymous"></script>
+
+<header class="bg-indigo-600 w-full h-36 rounded-bl-[100px] flex  justify-center  hover:bg-black-700 ">
+        <a href="http://drupal.docker.localhost:8000/devjobss"><img src="http://drupal.docker.localhost:8000/modules/custom/devjobss/img/devjobs.png" class="absolute w-28 top-10 left-40 " alt=""></a>
+
+        <div class="absolute top-10 right-[100px] flex justify-center items-center w-[140px] h-[50px] ">
+          <i class="fa-solid fa-sun  text-[25px] text-white m-[5px]"></i>
+          <div class="w-[60px] h-[24px] border-[3px] border-white inline-block rounded-[12px] bg-white">
+              <div class="w-[18px] h-[18px] rounded-full bg-indigo-600 cursor-pointer clicked:translate-x-[20px] duration-1000	"></div>
+          </div>
+          <i class="fa-solid fa-moon text-white	text-[25px] m-[5px]"></i>
+        </div>
+        <h1 id="ll">hello</h1>
+</header>
+<center><section class="w-[800px] h-[150px] bg-gray-100 translate-y-[-43px] rounded-[10px]  flex	items-center	">
+    <div class="absolute rounded-[10px]" >{{content.field_company_logo}}</div>
+    <div class="text-[25px]  translate-x-[185px]  inline-block">{{content.field_company_name}}</div>
+    <div class="absolute right-[30px] w-[150px] h-[50px] bg-gray-200 rounded-[15px] flex justify-center items-center font-bold text-blue-600">company site<div>
+</section></center>
+
+<section class="w-[800px] h-[1000px] bg-gray-200 p-[25px] m-auto ">
+    <div class="text-[25px] font-black mt-[30px]">{{content.field_job_title	}} </div>
+    <div class="  text-blue-700 font-bold">{{content.field_country	}} </div>
+    <div>
+    <p class="font-light mt-[35px] ">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+    </p></div>
+    <h1 class="font-black mt-[30px] ">Requirements</h1>
+    <p class="font-light mt-[20px]">
+    Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+Morbi interdum mollis sapien. Sed
+Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus
+Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.
+Morbi interdum mollis sapien. Sed
+    </p>
+    <h1 class="font-black mt-[30px]">What You Will Do</h1>
+    <div class="font-light mt-[20px]">{{content.field_text}} </div>
+    <p class="font-light mt-[20px]">
+    1 Morbi interdum mollis sapien. Sed <br>
+    2 Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus <br>
+    3 Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. <br>
+    4 Morbi interdum mollis sapien. Sed</p>
+
+</section>
+
+<article{{ attributes }}>
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer>
+      <div{{ author_attributes }}>
+       {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes }}>
+  </div>
+
+</article>
